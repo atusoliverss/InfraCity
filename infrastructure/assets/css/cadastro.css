@@ -1,6 +1,4 @@
-.body{
-    background-color: #466B73;
-}
+@import url(../css/global.css);
 
 header{
     background-color: #253850 !important;
