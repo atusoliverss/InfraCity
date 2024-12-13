@@ -30,8 +30,6 @@
 }
 
 #navbarNav a:hover{
-    border-radius: 10px !important;
-    padding: 5px !important;
-    padding-bottom: 10px !important;
-    background-color: #466b73;
+    font-size: 20px;
+    text-decoration: underline;
 }

@@ -16,85 +16,100 @@
         </span>
     </header>
     <main class="bg-light mx-3 mb-3 rounded">
-        <form id="form-custom" action="../home/adm/home.html" class="my-5">
-              <div class="row">
-                <div class="d-flex justify-content-center">
-                  <h2 class="h2 mb-5 mt-3 fs-1">CADASTRO</h2>
+        <form id="form-custom" action="../home/adm/home.html" class="my-5" onsubmit="return validateForm()">
+            <div class="d-flex justify-content-center">
+                <h2 class="h2 mb-5 mt-3 fs-1">CADASTRO</h2>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="InputName1" class="form-label">First name</label>
+                    <input type="text" class="border border-warning form-control" id="InputName1" required placeholder="First name">
                 </div>
                 <div class="col mb-3">
-                    <label for="InputName1" class="form-label">First name</label> <!-- Rótulo para o campo de entrada de nome -->
-                    <input type="name" class="border border-warning form-control" id="InputName1" required placeholder="First name" title="This is a required field"> <!-- Campo de entrada para nome, obrigatório -->
+                    <label for="InputName2" class="form-label">Last name</label>
+                    <input type="text" class="border border-warning form-control" id="InputName2" required placeholder="Last name">
                 </div>
-                <div class="col mb-3">
-                    <label for="InputName1" class="form-label">Last name</label> <!-- Rótulo para o campo de entrada de nome -->
-                    <input type="name" class="border border-warning form-control" id="InputName1" required placeholder="Last name" title="This is a required field"> <!-- Campo de entrada para nome, obrigatório -->
-                </div>
-              </div>
-            
+            </div>
+
             <div class="mb-3">
                 <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" class="border border-warning form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" title="This is a required field">
+                <input type="email" class="border border-warning form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-              </div>
-              <div>
+            </div>
+
+            <div>
                 <label for="InputPhone" class="form-label">Phone</label>
-                <input type="tel" class="border border-warning form-control" id="InputPhone" title="This is a required field" placeholder="example-(74)9999-9999">
-              </div>
-              <div class="mb-3">
-                <label for="birthdate" class="form-label">Birth Date</label> <!-- Rótulo para o campo de entrada de data de nascimento -->
-                <input type="date" class="border border-warning form-control" id="birthdate" name="birthdate"> <!-- Campo de entrada para data de nascimento -->
-              </div>
-              <label>Sex: </label> <!-- Rótulo para o grupo de opções de gênero -->
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> <!-- Botão de seleção para "Masculino" -->
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Male
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> <!-- Botão de seleção para "Feminino" -->
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Female
-                </label>
-              </div>
-              <div class="mb-3">
+                <input type="tel" class="border border-warning form-control" id="InputPhone" placeholder="(XX) 99999-9999" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="birthdate" class="form-label">Birth Date</label>
+                <input type="date" class="border border-warning form-control" id="birthdate" name="birthdate" required>
+            </div>
+
+            <label>Role:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="resident" value="Morador" onclick="handleRoleChange()" required>
+                <label class="form-check-label" for="resident">Morador</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="admin" value="Administrador" onclick="handleRoleChange()" required>
+                <label class="form-check-label" for="admin">Administrador</label>
+            </div>
+
+            <!-- Campo oculto para código de administrador -->
+            <div id="admin-code-container" class="mb-3" style="display: none;">
+                <label for="adminCode" class="form-label">Código de Administrador</label>
+                <input type="password" class="border border-warning form-control" id="adminCode" placeholder="Insira o código de administrador">
+                <div id="error-message" class="text-danger" style="display: none;">Código incorreto. Tente novamente.</div>
+            </div>
+
+            <div class="mb-3">
                 <label for="InputPassword1" class="form-label">Password</label>
-                <input type="password" class="border border-warning form-control" id="InputPassword1" title="This is a required field">
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div>
-              <button type="submit" class="btn btn-outline-success">Submit</button>
-              <button type="reset" class="btn btn-outline-danger">Clear</button>
-              <div class="input-box mt-3">
-                <p>Já possui uma conta ? <a href="../login/login.html">Entrar</a></p>
-              </div>
+                <input type="password" class="border border-warning form-control" id="InputPassword1" required>
+            </div>
+
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+            <button type="reset" class="btn btn-outline-danger">Clear</button>
+            <div class="input-box mt-3">
+                <p>Já possui uma conta? <a href="../login/login.html">Entrar</a></p>
+            </div>
         </form>
     </main>
-    <!-- Rodapé -->
+
     <footer class="bg-dark text-light text-center py-3">
-      <p class="mb-4">&copy; 2024 InfraCity - Todos os direitos reservados.</p>
-      <nav class="d-flex">
-          <div class="container-sm">
-              <ul class="nav justify-content-around">
-                  <li class="nav-item">
-                      <a href="#" class="text-light text-decoration-none">Política de Privacidade</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="text-light text-decoration-none">Termos de Uso</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="text-light text-decoration-none">Suporte</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="text-light text-decoration-none">Contato</a>
-                  </li>
-              </ul>
-          </div>
-      </nav>
-  </footer>
+        <p class="mb-4">&copy; 2024 InfraCity - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function handleRoleChange() {
+            const adminCodeContainer = document.getElementById('admin-code-container');
+            const form = document.getElementById('form-custom');
+
+            if (document.getElementById('admin').checked) {
+                adminCodeContainer.style.display = 'block';
+                form.action = '../home/adm/home.html'; // URL para administradores
+            } else {
+                adminCodeContainer.style.display = 'none';
+                form.action = '../home/resident/home.html'; // URL para moradores
+            }
+        }
+
+        function validateForm() {
+            const isAdmin = document.getElementById('admin').checked;
+            const adminCode = document.getElementById('adminCode').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (isAdmin && adminCode !== '696969') {
+                errorMessage.style.display = 'block';
+                return false; // Impede o envio do formulário
+            }
+
+            errorMessage.style.display = 'none';
+            return true; // Permite o envio do formulário
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Inclusão do script JavaScript do Bootstrap para funcionalidades interativas -->
 </body>
 </html>

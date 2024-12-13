@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../assets/images/logo_icon.png" type="image/x-icon">
     <!--Links css-->
     <link rel="stylesheet" href="../login/login.css" />
@@ -27,7 +29,7 @@
        <div class="content-box bg-light rounded-right">
          <div class="form-box p-3 bg-white rounded">
            <h2>Login</h2>
-           <form>
+           <form action="../home/adm/home-adm.html">
              <div class="input-box">
                <span>Username</span>
                <input type="email" class="border border-success-subtle form-control" placeholder="@mail.com" />
@@ -59,5 +61,27 @@
        </div>
      </div>
    </main>
+   <!-- Rodapé -->
+   <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-4">&copy; 2024 InfraCity - Todos os direitos reservados.</p>
+    <nav class="d-flex">
+        <div class="container-sm">
+            <ul class="nav justify-content-around">
+                <li class="nav-item">
+                    <a href="#" class="text-light text-decoration-none">Política de Privacidade</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="text-light text-decoration-none">Termos de Uso</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="text-light text-decoration-none">Suporte</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="text-light text-decoration-none">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</footer>
   </body>
 </html>
